@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
+
 export const BreweryCard = ({ brewery }) => {
-    return (
+  return (
+    <Link to={`/brewery/${brewery.id}`} className="brewery-card-link">
       <div className="brewery-card">
         <h3>{brewery.name}</h3>
         <div className="brewery-details">
@@ -21,19 +24,11 @@ export const BreweryCard = ({ brewery }) => {
           )}
         </div>
         {brewery.website_url && (
-          <a 
-            href={
-              brewery.website_url.startsWith('http') 
-                ? brewery.website_url 
-                : `https://${brewery.website_url}`
-            } 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="website-link"
-          >
-            🌐 Visit Website
-          </a>
+          <p className="website-link">
+            🌐 {brewery.website_url}
+          </p>
         )}
       </div>
-    );
-  };
+    </Link>
+  );
+};

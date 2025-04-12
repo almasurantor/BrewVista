@@ -4,6 +4,7 @@ import { SearchBar } from '../components/SearchBar';
 import { Filters } from '../components/Filters';
 import { StatsCard } from '../components/StatsCard';
 import { BreweryList } from '../components/BreweryList';
+import { Charts } from '../components/Charts';
 
 export const Dashboard = () => {
   const [breweries, setBreweries] = useState([]);
@@ -86,7 +87,7 @@ export const Dashboard = () => {
       </div>
       
       <StatsCard stats={stats} />
-      
+      <Charts stats={stats} />
       {filteredBreweries.length === 0 ? (
         <div className="status-message no-results">
           <p>No breweries found matching your criteria</p>
